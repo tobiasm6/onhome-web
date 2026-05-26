@@ -592,8 +592,18 @@
       });
 
       if (response.ok) {
-        form.style.display = 'none';
-        successMsg.classList.add('active');
+        // Redirigir directamente al destino sin pantalla intermedia
+        window.location.href = destinoLink;
+      } else {
+        throw new Error('Error en el envío');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = planElegido === 'anual' ? 'Aceptar y coordinar pago por WhatsApp' : 'Aceptar y proceder al pago';
+      alert('Hubo un error al registrar tu aceptación. Por favor escribinos por WhatsApp al +54 9 11 5097-0289.');
+    }
+  });
+</script>
 
-        // Cambiar texto del mensaje de éxito según el plan
-        const successTitle = successMsg.querySelector('h3
+</body>
+</html>
