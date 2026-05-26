@@ -74,6 +74,14 @@
     position: relative;
   }
 
+  .hero-logo {
+    width: 70px;
+    height: auto;
+    margin: 0 auto 20px;
+    display: block;
+    position: relative;
+  }
+
   .tagline {
     font-size: 11px;
     letter-spacing: 4px;
@@ -504,6 +512,68 @@
     fill: currentColor;
   }
 
+  /* Botón dorado primario para suscripción */
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--bg-dark);
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(184, 153, 104, 0.35);
+  }
+
+  .cta-primary:hover {
+    background: #c9a878;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(184, 153, 104, 0.5);
+  }
+
+  /* Grupo de botones (primario + secundario) */
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .cta-group .cta-button,
+  .cta-group .cta-primary {
+    min-width: 260px;
+  }
+
+  /* Versión hero del grupo de botones (más compacta) */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .hero-cta-group .cta-primary,
+  .hero-cta-group .cta-button {
+    min-width: 240px;
+    padding: 16px 32px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 600px) {
+    .cta-group,
+    .hero-cta-group {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
   .cta-foot {
     margin-top: 20px;
     font-size: 12px;
@@ -570,6 +640,7 @@
   @media (min-width: 600px) {
     .hero { padding: 80px 24px 88px; }
     .brand { font-size: 44px; }
+    .hero-logo { width: 85px; margin-bottom: 24px; }
     .hero-headline { font-size: 36px; }
     .section-title { font-size: 36px; }
     .price-main { font-size: 76px; }
@@ -596,10 +667,18 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero">
+  <img src="/logo-onhome.png" alt="OnHome" class="hero-logo">
   <div class="brand">OnHome</div>
   <div class="tagline">Cuidamos tu hogar</div>
   <h1 class="hero-headline">El servicio que tu casa<br><em>siempre necesitó.</em></h1>
   <p class="hero-sub">Mantenimiento preventivo profesional por suscripción mensual. Para residentes de El Portal de Pilar.</p>
+  <div class="hero-cta-group">
+    <a class="cta-primary" href="/terminos/">Quiero suscribirme</a>
+    <a class="cta-button" href="https://wa.me/5491150970289?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OnHome%20Esencial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Hablar por WhatsApp
+    </a>
+  </div>
 </header>
 
 <!-- ===== QUÉ ES ===== -->
@@ -638,8 +717,8 @@
       <li class="feature">
         <span class="feature-num"></span>
         <div>
-          <h3 class="feature-title">Asistencia técnica por WhatsApp 24/7</h3>
-          <p class="feature-desc">Un técnico responde en minutos. Sin turnos, sin esperas, sin intermediarios.</p>
+          <h3 class="feature-title">Asistencia técnica por WhatsApp de 8 a 22 hs</h3>
+          <p class="feature-desc">Un técnico responde dentro del horario de atención, todos los días. Sin turnos, sin esperas, sin intermediarios.</p>
         </div>
       </li>
 
@@ -811,12 +890,15 @@
     <h2 class="cta-title">Sumate al lanzamiento.</h2>
     <p class="cta-sub">Precio promocional disponible por tiempo limitado para residentes de El Portal de Pilar.</p>
 
-    <a class="cta-button" href="https://wa.me/5491150970289?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OnHome%20Esencial" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      Hablar por WhatsApp
-    </a>
+    <div class="cta-group">
+      <a class="cta-primary" href="/terminos/">Quiero suscribirme</a>
+      <a class="cta-button" href="https://wa.me/5491150970289?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OnHome%20Esencial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Hablar por WhatsApp
+      </a>
+    </div>
 
-    <p class="cta-foot">Te respondemos en menos de 24 horas · Sin compromiso</p>
+    <p class="cta-foot">Atención por WhatsApp de 8 a 22 hs · Sin compromiso</p>
   </div>
 </section>
 
@@ -824,6 +906,7 @@
 <footer>
   <div class="brand-foot">OnHome</div>
   <div>onhome.app@gmail.com · <a href="https://instagram.com/onhome.app" target="_blank" rel="noopener">@onhome.app</a></div>
+  <div style="margin-top: 14px;"><a href="/terminos/" style="font-size: 11px; opacity: 0.8;">Términos y condiciones</a></div>
 </footer>
 
 </body>
