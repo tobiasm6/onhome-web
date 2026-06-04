@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OnHome — Términos y Condiciones</title>
-<meta name="description" content="Términos y Condiciones de la membresía OnHome Esencial. Formulario de aceptación y contratación.">
+<title>OnHome Esencial — Cuidamos tu hogar</title>
+<meta name="description" content="Mantenimiento preventivo del hogar por suscripción mensual. Auditoría, asistencia técnica por WhatsApp, service preventivo de caldera y red de profesionales certificados.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +20,8 @@
     --gold: #b89968;
     --gold-soft: #d4b88a;
     --line: #d8d1c2;
+    --line-dark: #2d2a25;
     --accent: #4a5d3a;
-    --error: #c14a3d;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,575 +39,883 @@
   }
 
   .container {
-    max-width: 720px;
+    max-width: 560px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
-  /* HEADER */
-  header.hero {
+  /* ===== HERO ===== */
+  .hero {
     background: var(--bg-dark);
     color: var(--paper);
-    padding: 48px 24px 56px;
+    padding: 64px 24px 72px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 80%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(184,153,104,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
   .brand {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 500;
     letter-spacing: -0.5px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    position: relative;
   }
+
+  .hero-logo {
+    width: 70px;
+    height: auto;
+    margin: 0 auto 20px;
+    display: block;
+    position: relative;
+  }
+
   .tagline {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--gold-soft);
     font-weight: 400;
-    margin-bottom: 28px;
+    margin-bottom: 48px;
   }
-  .doc-title {
+
+  .hero-headline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 400;
+    font-size: 30px;
     line-height: 1.2;
+    font-weight: 400;
+    margin-bottom: 20px;
     color: var(--paper);
   }
-  .doc-subtitle {
-    font-size: 13px;
-    color: rgba(254, 252, 247, 0.6);
-    margin-top: 8px;
+
+  .hero-headline em {
+    font-style: italic;
+    color: var(--gold-soft);
   }
 
-  /* PRESTADOR */
-  .prestador {
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(254, 252, 247, 0.7);
+    max-width: 440px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section {
+    padding: 64px 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-intro {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 480px;
+    margin: 0 auto 48px;
+  }
+
+  /* ===== QUÉ ES ===== */
+  .what {
+    background: var(--bg);
+  }
+
+  .what-text {
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.7;
+    text-align: left;
+  }
+
+  .what-text p {
+    margin-bottom: 18px;
+  }
+
+  .what-text strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ===== INCLUYE ===== */
+  .includes {
     background: var(--paper);
-    padding: 32px 24px;
+    border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
   }
-  .prestador .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--ink-soft);
-  }
-  .prestador strong { color: var(--ink); font-weight: 500; }
-  .prestador .row { display: flex; gap: 8px; flex-wrap: wrap; }
 
-  /* CONTENT */
-  .content {
-    background: var(--paper);
-    padding: 48px 0 24px;
+  .feature-list {
+    list-style: none;
+    counter-reset: feature;
   }
-  .content section {
-    margin-bottom: 36px;
+
+  .feature {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
   }
-  .content h2 {
+
+  .feature:last-child {
+    border-bottom: none;
+  }
+
+  .feature-num {
+    counter-increment: feature;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold);
+    font-style: italic;
+    line-height: 1;
+    padding-top: 2px;
+  }
+
+  .feature-num::before {
+    content: "0" counter(feature);
+  }
+
+  .feature-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 22px;
     font-weight: 500;
     color: var(--ink);
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ===== ENTROPÍA / CAMPAÑAS ===== */
+  .entropy {
+    background: var(--bg-dark);
+    color: var(--paper);
+  }
+
+  .entropy .section-label {
+    color: var(--gold-soft);
+  }
+
+  .entropy .section-title {
+    color: var(--paper);
+  }
+
+  .entropy-text {
+    font-size: 16px;
+    line-height: 1.75;
+    color: rgba(254, 252, 247, 0.82);
+    max-width: 480px;
+    margin: 0 auto 8px;
+    text-align: left;
+  }
+
+  .entropy-text p {
+    margin-bottom: 16px;
+  }
+
+  .entropy-text em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold-soft);
+    font-size: 18px;
+  }
+
+  .seasons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: rgba(184, 153, 104, 0.2);
+    border-top: 1px solid rgba(184, 153, 104, 0.2);
+    border-bottom: 1px solid rgba(184, 153, 104, 0.2);
+  }
+
+  .season {
+    background: var(--bg-dark);
+    padding: 24px 4px;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .season-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    padding-top: 4px;
+  }
+
+  .season-content h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 6px;
     line-height: 1.25;
+  }
+
+  .season-content p {
+    font-size: 13px;
+    color: rgba(254, 252, 247, 0.65);
+    line-height: 1.5;
+  }
+
+  .seasons-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(254, 252, 247, 0.5);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ===== PRECIO ===== */
+  .pricing {
+    background: var(--bg);
+    text-align: center;
+  }
+
+  .price-card {
+    background: var(--bg-dark);
+    color: var(--paper);
+    padding: 40px 28px 36px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+
+  .price-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at top right, rgba(184,153,104,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .price-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg-dark);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 7px 14px;
+    margin-bottom: 24px;
+    border-radius: 1px;
+    position: relative;
+  }
+
+  .price-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 4px;
+    color: var(--paper);
+  }
+
+  .price-strike {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: rgba(254, 252, 247, 0.45);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-weight: 300;
+  }
+
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -2px;
+    color: var(--paper);
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: rgba(254, 252, 247, 0.6);
+    margin-bottom: 24px;
+  }
+
+  .price-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(184, 153, 104, 0.4);
+    margin: 0 auto 24px;
+  }
+
+  .price-annual {
+    font-size: 14px;
+    color: rgba(254, 252, 247, 0.75);
+    margin-bottom: 6px;
+  }
+
+  .price-annual strong {
+    color: var(--gold-soft);
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  .price-annual-note {
+    font-size: 12px;
+    color: rgba(254, 252, 247, 0.5);
+    margin-bottom: 24px;
+  }
+
+  .price-terms {
+    font-size: 11px;
+    color: rgba(254, 252, 247, 0.45);
+    line-height: 1.5;
+    padding-top: 20px;
+    border-top: 1px solid rgba(184, 153, 104, 0.15);
+  }
+
+  /* ===== FAQ ===== */
+  .faq {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-list {
+    margin-top: 40px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 24px 0;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-question {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+    line-height: 1.3;
     display: flex;
     align-items: baseline;
-    gap: 12px;
+    gap: 10px;
   }
-  .content h2 .num {
+
+  .faq-question::before {
+    content: "—";
     color: var(--gold);
     font-style: italic;
-    font-size: 18px;
     flex-shrink: 0;
   }
-  .content p {
+
+  .faq-answer {
     font-size: 14px;
     color: var(--ink-soft);
-    line-height: 1.7;
-    margin-bottom: 10px;
+    line-height: 1.6;
+    padding-left: 22px;
   }
-  .content ul {
-    list-style: none;
-    margin-bottom: 10px;
+
+  /* ===== CTA ===== */
+  .cta-section {
+    background: var(--paper);
+    text-align: center;
+    padding: 64px 0 56px;
   }
-  .content ul li {
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .cta-sub {
     font-size: 14px;
     color: var(--ink-soft);
-    line-height: 1.7;
-    padding-left: 18px;
-    position: relative;
-    margin-bottom: 4px;
+    margin-bottom: 32px;
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .content ul li::before {
-    content: "—";
-    position: absolute;
-    left: 0;
-    color: var(--gold);
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(74, 93, 58, 0.25);
   }
-  .content strong { color: var(--ink); font-weight: 500; }
-  .legal-note {
+
+  .cta-button:hover {
+    background: #3d4d30;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(74, 93, 58, 0.35);
+  }
+
+  .cta-button svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  /* Botón dorado primario para suscripción */
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--bg-dark);
+    padding: 18px 36px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(184, 153, 104, 0.35);
+  }
+
+  .cta-primary:hover {
+    background: #c9a878;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(184, 153, 104, 0.5);
+  }
+
+  /* Grupo de botones (primario + secundario) */
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .cta-group .cta-button,
+  .cta-group .cta-primary {
+    min-width: 260px;
+  }
+
+  /* Versión hero del grupo de botones (más compacta) */
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-top: 32px;
+  }
+
+  .hero-cta-group .cta-primary,
+  .hero-cta-group .cta-button {
+    min-width: 240px;
+    padding: 16px 32px;
+    font-size: 14px;
+  }
+
+  @media (min-width: 600px) {
+    .cta-group,
+    .hero-cta-group {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .cta-foot {
+    margin-top: 20px;
     font-size: 12px;
     color: var(--ink-soft);
-    font-style: italic;
-    background: var(--bg);
-    padding: 12px 14px;
-    border-left: 2px solid var(--gold);
-    margin-top: 8px;
   }
-  .review-mark {
-    background: rgba(193, 74, 61, 0.08);
-    color: var(--error);
-    padding: 2px 6px;
-    border-radius: 2px;
-    font-size: 11px;
+
+  /* ===== FOUNDER ===== */
+  .founder {
+    background: var(--bg);
+    padding: 56px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .founder-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--ink);
+    text-align: left;
+    margin-bottom: 24px;
+    position: relative;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold);
+  }
+
+  .founder-name {
+    font-size: 13px;
+    color: var(--ink);
     font-weight: 500;
     letter-spacing: 0.3px;
   }
 
-  /* FORM */
-  .form-section {
-    background: var(--bg-dark);
-    color: var(--paper);
-    padding: 56px 0 64px;
-  }
-  .form-section h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    font-weight: 400;
-    text-align: center;
-    color: var(--paper);
-    margin-bottom: 8px;
-  }
-  .form-section .form-intro {
-    text-align: center;
-    font-size: 14px;
-    color: rgba(254, 252, 247, 0.65);
-    margin-bottom: 36px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  form {
-    max-width: 520px;
-    margin: 0 auto;
-  }
-  .field {
-    margin-bottom: 20px;
-  }
-  .field label {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold-soft);
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  .field input,
-  .field select {
-    width: 100%;
-    background: rgba(254, 252, 247, 0.05);
-    border: 1px solid rgba(184, 153, 104, 0.25);
-    color: var(--paper);
-    padding: 14px 14px;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    border-radius: 2px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .field input:focus,
-  .field select:focus {
-    border-color: var(--gold);
-    background: rgba(254, 252, 247, 0.08);
-  }
-  .field input::placeholder {
-    color: rgba(254, 252, 247, 0.3);
-  }
-  .field select {
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%23d4b88a' stroke-width='1.5' fill='none'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px;
-    color: var(--paper);
-  }
-  .field select option {
-    background: var(--bg-dark);
-    color: var(--paper);
-    padding: 12px;
-  }
-  .checkbox-field {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 18px;
-    background: rgba(184, 153, 104, 0.08);
-    border: 1px solid rgba(184, 153, 104, 0.2);
-    border-radius: 2px;
-    margin: 24px 0 28px;
-    cursor: pointer;
-  }
-  .checkbox-field input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--gold);
-    flex-shrink: 0;
+  .founder-title {
+    font-size: 12px;
+    color: var(--ink-soft);
     margin-top: 2px;
-    cursor: pointer;
-  }
-  .checkbox-field label {
-    font-size: 13px;
-    color: var(--paper);
-    line-height: 1.5;
-    cursor: pointer;
-    letter-spacing: 0;
-    text-transform: none;
-    font-weight: 300;
-    margin-bottom: 0;
-  }
-  .submit-btn {
-    width: 100%;
-    background: var(--accent);
-    color: var(--paper);
-    border: none;
-    padding: 18px;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .submit-btn:hover {
-    background: #3d4d30;
-  }
-  .submit-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-  }
-  .form-foot {
-    text-align: center;
-    font-size: 11px;
-    color: rgba(254, 252, 247, 0.4);
-    margin-top: 16px;
-    line-height: 1.5;
   }
 
-  /* SUCCESS */
-  .success {
-    display: none;
-    text-align: center;
-    padding: 40px 24px;
-    background: rgba(74, 93, 58, 0.15);
-    border: 1px solid rgba(74, 93, 58, 0.4);
-    border-radius: 2px;
-    margin: 0 auto;
-    max-width: 520px;
-  }
-  .success.active { display: block; }
-  .success h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--paper);
-    margin-bottom: 12px;
-  }
-  .success p {
-    font-size: 14px;
-    color: rgba(254, 252, 247, 0.8);
-    margin-bottom: 8px;
-  }
-
-  /* FOOTER */
+  /* ===== FOOTER ===== */
   footer {
     background: var(--bg-dark);
-    color: rgba(254, 252, 247, 0.4);
+    color: rgba(254, 252, 247, 0.6);
     text-align: center;
-    padding: 28px 24px 32px;
-    font-size: 11px;
+    padding: 40px 24px;
+    font-size: 12px;
     letter-spacing: 0.5px;
-    border-top: 1px solid rgba(184, 153, 104, 0.15);
   }
+
+  footer .brand-foot {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--paper);
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
+
   footer a {
     color: var(--gold-soft);
     text-decoration: none;
   }
-  footer .back-link {
-    display: inline-block;
-    margin-bottom: 12px;
-    font-size: 12px;
+
+  /* ===== RESPONSIVE TWEAKS ===== */
+  @media (min-width: 600px) {
+    .hero { padding: 80px 24px 88px; }
+    .brand { font-size: 44px; }
+    .hero-logo { width: 85px; margin-bottom: 24px; }
+    .hero-headline { font-size: 36px; }
+    .section-title { font-size: 36px; }
+    .price-main { font-size: 76px; }
+    .container { padding: 0 32px; }
   }
 
-  @media (min-width: 600px) {
-    header.hero { padding: 64px 24px 72px; }
-    .brand { font-size: 42px; }
-    .doc-title { font-size: 34px; }
-    .content { padding: 64px 0 32px; }
-    .content h2 { font-size: 24px; }
-    .form-section { padding: 72px 0 80px; }
-    .form-section h2 { font-size: 36px; }
-    .prestador .container {
-      grid-template-columns: 1fr 1fr;
-    }
+  /* ===== ANIMATION ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+
+  .hero > * {
+    animation: fadeUp 0.8s ease-out backwards;
+  }
+
+  .hero .brand { animation-delay: 0.1s; }
+  .hero .tagline { animation-delay: 0.2s; }
+  .hero .hero-headline { animation-delay: 0.35s; }
+  .hero .hero-sub { animation-delay: 0.5s; }
 </style>
 </head>
 <body>
 
+<!-- ===== HERO ===== -->
 <header class="hero">
+  <img src="/logo-onhome.png" alt="OnHome" class="hero-logo">
   <div class="brand">OnHome</div>
   <div class="tagline">Cuidamos tu hogar</div>
-  <h1 class="doc-title">Términos y Condiciones</h1>
-  <div class="doc-subtitle">Plan Esencial — Vigente desde mayo 2026</div>
+  <h1 class="hero-headline">El servicio que tu casa<br><em>siempre necesitó.</em></h1>
+  <p class="hero-sub">Mantenimiento preventivo profesional por suscripción mensual.</p>
+  <div class="hero-cta-group">
+    <a class="cta-primary" href="/terminos/">Quiero suscribirme</a>
+    <a class="cta-button" href="https://wa.me/5491150970289?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OnHome%20Esencial" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Hablar por WhatsApp
+    </a>
+  </div>
 </header>
 
-<div class="prestador">
+<!-- ===== QUÉ ES ===== -->
+<section class="what">
   <div class="container">
-    <div><strong>Prestador:</strong> Tobías Moyano</div>
-    <div><strong>CPAU:</strong> 31058</div>
-    <div><strong>Condición:</strong> Monotributista</div>
-    <div><strong>Contacto:</strong> contacto@onhome.com.ar</div>
-    <div><strong>WhatsApp:</strong> +54 9 11 5097-0289</div>
-    <div><strong>Domicilio:</strong> Pilar, Provincia de Buenos Aires</div>
-  </div>
-</div>
+    <div class="section-label">Qué es OnHome</div>
+    <h2 class="section-title">Tu casa, en orden, todo el año.</h2>
 
-<div class="content">
-  <div class="container">
+    <div class="what-text" style="margin-top: 40px;">
+      <p>OnHome es una empresa de mantenimiento preventivo del hogar. Por una <strong>suscripción mensual fija</strong>, tu propiedad recibe atención técnica profesional durante todo el año.</p>
 
-    <section>
-      <h2><span class="num">01</span>Objeto</h2>
-      <p>OnHome es un servicio de mantenimiento preventivo del hogar prestado mediante una membresía mensual. El presente documento regula las condiciones del Plan Esencial, incluyendo el alcance del servicio, las obligaciones del prestador y del titular, y las modalidades de contratación, pago y baja.</p>
-      <p>La aceptación de estos Términos y Condiciones mediante el formulario al pie de este documento constituye un contrato de adhesión en los términos del artículo 38 de la Ley 24.240 de Defensa del Consumidor.</p>
-    </section>
+      <p>Ante cualquier problema — una pérdida de agua, un desperfecto eléctrico, una caldera que no enciende — <strong>un solo mensaje de WhatsApp es suficiente</strong>: identificamos qué necesitás, coordinamos al profesional adecuado y gestionamos la visita.</p>
 
-    <section>
-      <h2><span class="num">02</span>Aceptación</h2>
-      <p>Al completar el formulario y aceptar estos Términos y Condiciones marcando la casilla correspondiente, el <strong>Titular</strong> declara haber leído, comprendido y aceptado todas las cláusulas del presente. La aceptación tiene valor de firma electrónica simple en los términos de la Ley 25.506 y normas complementarias.</p>
-      <p>El Titular debe ser mayor de edad y propietario, inquilino con autorización del propietario, o responsable legal de la vivienda registrada en la ficha digital.</p>
-    </section>
+      <p>Cuando la intervención lo requiere, contás además con la <strong>opinión de un arquitecto matriculado</strong> antes de tomar cualquier decisión — sin tener que llamar a nadie.</p>
 
-    <section>
-      <h2><span class="num">03</span>Alcance del Plan Esencial</h2>
-      <p>La membresía incluye los siguientes servicios durante la vigencia del contrato:</p>
-      <ul>
-        <li><strong>Auditoría inicial</strong>: una visita técnica de relevamiento dentro de los 15 días corridos de la contratación, con entrega de informe digital del estado de la propiedad.</li>
-        <li><strong>Ficha digital de la propiedad</strong>: registro de equipos, instalaciones, antigüedad, intervenciones e historial.</li>
-        <li><strong>Asistencia técnica por WhatsApp</strong> todos los días de 8 a 22 horas, con triage realizado por personal calificado.</li>
-        <li><strong>Asesoría de arquitecto matriculado</strong> en aquellos casos en que la intervención requerida pueda afectar la estructura, las instalaciones principales o el valor de la propiedad.</li>
-        <li><strong>Coordinación de profesionales</strong> en gremios de plomería, gas, electricidad, albañilería y pintura, pertenecientes a la red OnHome.</li>
-        <li><strong>Un service anual preventivo</strong> de caldera, termotanque o calefón (a elección del Titular, un único equipo declarado en la ficha digital), sujeto a las condiciones del punto 05.</li>
-        <li><strong>Campañas estacionales preventivas</strong> a precio preferencial para miembros (canaletas, filtros, fumigación y otras).</li>
-        <li><strong>15% de descuento</strong> en obras y reparaciones contratadas a través de OnHome.</li>
-        <li><strong>Anteproyecto y presupuesto de reformas sin cargo</strong>: ante un proyecto de remodelación, OnHome realiza la visita, el anteproyecto y el presupuesto sin costo, con un arquitecto matriculado.</li>
-        <li><strong>Recordatorios automáticos</strong> de mantenimientos estacionales.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><span class="num">04</span>Exclusiones</h2>
-      <p>El Plan Esencial <strong>no incluye</strong>:</p>
-      <ul>
-        <li>Tiempo de respuesta garantizado (SLA) para emergencias.</li>
-        <li>Mano de obra de reparaciones correctivas, que se cotizan aparte con descuento.</li>
-        <li>Repuestos, materiales e insumos.</li>
-        <li>Service de equipos adicionales al declarado (segundo calefón, splits, bombas, piletas, etc.).</li>
-        <li>Visitas de auditoría adicionales a la inicial.</li>
-        <li>Intervenciones que requieran habilitaciones especiales, permisos municipales u obras de envergadura, sin perjuicio de la asesoría incluida.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><span class="num">05</span>Service de caldera, termotanque o calefón</h2>
-      <p>El service anual de mantenimiento preventivo del equipo declarado se realiza bajo las siguientes condiciones:</p>
-      <ul>
-        <li>Un único equipo por membresía, declarado en la ficha digital al momento del alta.</li>
-        <li>Antigüedad máxima del equipo: 15 años. Equipos de mayor antigüedad serán atendidos en modalidad de mejor esfuerzo, sin garantía sobre disponibilidad de repuestos.</li>
-        <li>Ventana de service: meses de marzo a mayo o de septiembre a noviembre, a elección del Titular.</li>
-        <li>Los repuestos y materiales no están incluidos. En caso de requerirse, se cotizan previamente y su ejecución requiere la conformidad expresa del Titular.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2><span class="num">06</span>Red de profesionales — Intermediación</h2>
-      <p>OnHome coordina la atención del Titular con profesionales certificados pertenecientes a una red propia. <strong>OnHome actúa como intermediario y coordinador del servicio.</strong> Los técnicos de la red son profesionales independientes con su propia matriculación, habilitación o registro según corresponda al gremio.</p>
-      <p>La factura por la mano de obra correctiva, repuestos o trabajos adicionales puede ser emitida por OnHome o directamente por el profesional ejecutor, según se acuerde caso por caso.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">07</span>Precio, ajustes y modalidades de pago</h2>
-      <p>El precio vigente del Plan Esencial es de <strong>ARS 30.000 mensuales</strong>, abonables por suscripción automática de MercadoPago con tarjeta de crédito.</p>
-      <p>También está disponible la modalidad de <strong>pago anual por ARS 300.000</strong> (equivalente a dos meses bonificados), abonable <strong>únicamente por transferencia bancaria o efectivo</strong>, coordinada directamente con OnHome al WhatsApp +54 9 11 5097-0289. Esta modalidad no se gestiona a través del formulario online.</p>
-      <p>Los precios son promocionales durante el primer año de contratación. A partir del segundo año, y semestralmente, los valores se ajustan según la variación del Índice de Precios al Consumidor (IPC) publicado por el INDEC para el período correspondiente. El Titular será notificado del ajuste con al menos 15 días de anticipación.</p>
-      <p>La falta de pago por causa imputable al Titular suspende la prestación del servicio, sin perjuicio de la facultad de OnHome de rescindir el contrato.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">08</span>Vigencia, renovación y baja</h2>
-      <p>El contrato tiene vigencia mensual o anual según la modalidad elegida y se renueva automáticamente al vencimiento de cada período, salvo solicitud de baja por parte del Titular.</p>
-      <p>El Titular puede dar de baja la membresía en cualquier momento y sin penalidad, comunicándolo por WhatsApp al número de contacto. La baja se hace efectiva al cierre del período mensual en curso, sin reintegro proporcional de la cuota ya abonada. En el caso de pago anual, se reintegra la fracción no consumida descontando los servicios efectivamente prestados a valor unitario.</p>
-      <p>La ficha digital y el historial de intervenciones quedan a disposición del Titular para su descarga incluso luego de la baja, por un plazo de 12 meses.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">09</span>Responsabilidad</h2>
-      <p>OnHome responde por la idoneidad técnica de la coordinación, la selección de los profesionales de la red y la calidad de la asesoría brindada por el arquitecto matriculado, en los términos del artículo 1768 del Código Civil y Comercial.</p>
-      <p>La responsabilidad por la ejecución material de los trabajos correctivos corresponde al profesional ejecutor. En cualquier caso, la responsabilidad total de OnHome ante el Titular se limita al equivalente de seis (6) cuotas mensuales del plan contratado, salvo dolo o culpa grave debidamente acreditada.</p>
-      <p>OnHome no responde por daños derivados de defectos preexistentes no detectables en la auditoría inicial, por uso indebido de las instalaciones por parte del Titular, ni por hechos de terceros ajenos a la prestación.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">10</span>Protección de datos personales</h2>
-      <p>OnHome trata los datos personales del Titular conforme a la <strong>Ley 25.326 de Protección de Datos Personales</strong>. Los <strong>datos personales identificatorios</strong> recolectados —nombre, DNI, contacto, domicilio, datos del titular— se utilizan exclusivamente para la prestación del servicio, la comunicación con el Titular y el registro del historial de la propiedad. <strong>OnHome no comparte ni comercializa los datos personales identificatorios con terceros bajo ningún concepto.</strong></p>
-      <p>El Titular puede ejercer en cualquier momento sus derechos de acceso, rectificación, actualización y supresión de sus datos, comunicándolo a contacto@onhome.com.ar.</p>
-      <p>En caso de coordinación con profesionales de la red, se comparte únicamente la información estrictamente necesaria para la ejecución del trabajo (nombre, dirección y descripción del problema).</p>
-      <p><strong>Autorización de uso de datos técnicos anonimizados.</strong> El Titular autoriza expresamente a OnHome a utilizar los <strong>datos técnicos de la propiedad</strong> —características constructivas, antigüedad, instalaciones, equipos, intervenciones, incidencias, mediciones y demás información técnica registrada en la ficha digital— de forma <strong>anonimizada y agregada</strong>, es decir, disociada de cualquier dato personal identificatorio del Titular, para fines estadísticos, de mejora del servicio, análisis de mercado, desarrollo de productos y eventual cesión o comercialización a terceros, presentes o futuros. Esta autorización no incluye datos personales identificatorios, que se rigen exclusivamente por los párrafos anteriores.</p>
-      <p class="legal-note">La inscripción del responsable ante la Agencia de Acceso a la Información Pública será gestionada por el prestador en los plazos establecidos por la normativa.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">11</span>Modificaciones</h2>
-      <p>OnHome puede modificar los presentes Términos y Condiciones con preaviso al Titular de al menos 30 días de anticipación, comunicado por email o WhatsApp. Si las modificaciones afectan sustancialmente las condiciones del servicio o el precio fuera del ajuste por IPC previsto en el punto 07, el Titular puede dar de baja la membresía sin penalidad y con reintegro proporcional de lo abonado.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">12</span>Jurisdicción y resolución de conflictos</h2>
-      <p>Cualquier controversia derivada de la interpretación, ejecución o rescisión del presente se procurará resolver en primera instancia mediante comunicación directa y de buena fe entre las partes.</p>
-      <p>Agotada esa instancia, las partes se someten a la jurisdicción de los tribunales ordinarios del Departamento Judicial de Pilar, Provincia de Buenos Aires, con renuncia expresa a cualquier otro fuero o jurisdicción que pudiera corresponder.</p>
-      <p>El Titular conserva en todo momento sus derechos como consumidor según la Ley 24.240 y puede recurrir a los organismos de defensa del consumidor competentes.</p>
-    </section>
-
-  </div>
-</div>
-
-<section class="form-section" id="formulario">
-  <div class="container">
-    <h2>Aceptación y contratación</h2>
-    <p class="form-intro">Completá tus datos, aceptá los Términos y Condiciones y procedé al pago. Una vez registrado, te contactamos para coordinar la auditoría inicial.</p>
-
-    <form id="onhome-form" action="https://formspree.io/f/mzdwjqbe" method="POST">
-
-      <div class="field">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
-      </div>
-
-      <div class="field">
-        <label for="dni">DNI</label>
-        <input type="text" id="dni" name="dni" placeholder="Sin puntos ni espacios" required inputmode="numeric" pattern="[0-9]{7,8}">
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-      </div>
-
-      <div class="field">
-        <label for="whatsapp">WhatsApp (con código de área)</label>
-        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 11 5097 0289" required>
-      </div>
-
-      <div class="field">
-        <label for="direccion">Dirección de la propiedad</label>
-        <input type="text" id="direccion" name="direccion" placeholder="Calle, número, barrio, localidad" required>
-      </div>
-
-      <div class="field">
-        <label for="plan">Plan</label>
-        <select id="plan" name="plan" required>
-          <option value="">— Seleccioná un plan —</option>
-          <option value="mensual">Mensual — ARS 30.000 por mes (pago automático)</option>
-          <option value="anual">Anual — ARS 300.000 (coordinado por WhatsApp)</option>
-        </select>
-        <p style="font-size: 12px; color: rgba(254, 252, 247, 0.55); margin-top: 8px; line-height: 1.5;">El plan anual con descuento se abona por transferencia o efectivo. Si elegís esta opción, te contactamos por WhatsApp para coordinar el pago.</p>
-      </div>
-
-      <input type="hidden" name="_subject" value="Nueva contratación OnHome Esencial">
-      <input type="hidden" name="fecha_aceptacion" id="fecha_aceptacion">
-
-      <div class="checkbox-field">
-        <input type="checkbox" id="acepto" name="acepto" required>
-        <label for="acepto">He leído y acepto los Términos y Condiciones del Plan OnHome Esencial.</label>
-      </div>
-
-      <button type="submit" class="submit-btn" id="submit-btn">Aceptar y proceder al pago</button>
-
-      <p class="form-foot">Al hacer click, registramos tu aceptación y te redirigimos a MercadoPago para completar el pago del plan elegido.</p>
-
-    </form>
-
-    <div class="success" id="success-msg">
-      <h3>Aceptación registrada</h3>
-      <p>Estamos abriendo MercadoPago en una nueva pestaña para que completes el pago.</p>
-      <p style="margin-top: 16px; font-size: 12px;">Si no se abre automáticamente, hacé click en el botón que aparece abajo.</p>
-      <a id="payment-link" href="#" target="_blank" rel="noopener" style="display:inline-block;margin-top:20px;background:var(--accent);color:var(--paper);padding:14px 28px;text-decoration:none;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;">Ir a pagar</a>
+      <p>Las reparaciones tienen un costo con tarifas fijas y transparentes según la complejidad del trabajo — sin sorpresas, sin negociación. La membresía incluye también una <strong>auditoría inicial</strong> de tu propiedad, el <strong>service preventivo anual de tu caldera o termotanque</strong>, y un <strong>historial digital</strong> de todas las intervenciones — un activo concreto que suma valor a tu casa al momento de vender.</p>
     </div>
   </div>
 </section>
 
+<!-- ===== QUÉ INCLUYE ===== -->
+<section class="includes">
+  <div class="container">
+    <div class="section-label">Qué incluye</div>
+    <h2 class="section-title">Todo lo que tu hogar necesita.</h2>
+
+    <ol class="feature-list" style="margin-top: 40px;">
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Auditoría inicial de tu hogar</h3>
+          <p class="feature-desc">Diagnóstico completo con informe digital. Sabés exactamente en qué estado está tu propiedad y qué priorizar.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Asistencia técnica por WhatsApp de 8 a 22 hs</h3>
+          <p class="feature-desc">Un técnico responde dentro del horario de atención, todos los días. Sin turnos, sin esperas, sin intermediarios.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Asesoría de arquitecto cuando importa</h3>
+          <p class="feature-desc">Cuando una intervención puede afectar la estructura, la instalación o el valor de tu propiedad, contás con la opinión de un arquitecto matriculado antes de decidir. Sin costo, sin buscar a nadie.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Un solo número para todo</h3>
+          <p class="feature-desc">Plomero, electricista, pintor, técnico de gas, albañil. Vos avisás, nosotros coordinamos. Sin buscar, sin llamar, sin perseguir a nadie.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Service preventivo de caldera o termotanque</h3>
+          <p class="feature-desc">Mantenimiento preventivo anual por técnico certificado, incluido en el plan. No incluye repuestos ni materiales: si hacen falta, se cotizan aparte con tu 15% de descuento.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">15% de descuento en obras y reparaciones</h3>
+          <p class="feature-desc">Cualquier trabajo adicional que necesites, con red de profesionales verificados y tarifa preferencial.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Anteproyecto y presupuesto de reformas sin cargo</h3>
+          <p class="feature-desc">¿Pensás una reforma? Coordinamos la visita, el anteproyecto y el presupuesto sin cargo, con un arquitecto matriculado al frente. Solo pagás la obra si decidís avanzar, con tu 15% de descuento.</p>
+        </div>
+      </li>
+
+      <li class="feature">
+        <span class="feature-num"></span>
+        <div>
+          <h3 class="feature-title">Historial digital de tu propiedad</h3>
+          <p class="feature-desc">Registro permanente de cada intervención. Un activo concreto que aumenta el valor de tu casa al momento de vender.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== ENTROPÍA / CAMPAÑAS ===== -->
+<section class="entropy">
+  <div class="container">
+    <div class="section-label">Campañas estacionales</div>
+    <h2 class="section-title">Las casas se cuidan<br>anticipándose.</h2>
+
+    <div class="entropy-text" style="margin-top: 40px;">
+      <p>Tu casa, como todo lo que cuidamos, vive un proceso silencioso de <em>entropía</em> — un desgaste lento que avanza con o sin que te des cuenta. Una humedad que progresa, una junta que cede, un filtro que se obstruye.</p>
+
+      <p>La buena noticia es que ese deterioro se puede anticipar. Cuidar una casa no es reaccionar cuando algo falla: es <strong style="color: var(--paper); font-weight: 500;">prevenir antes de que falle</strong>.</p>
+
+      <p>Por eso, durante el año coordinamos campañas de mantenimiento preventivo a precio preferencial para miembros. No hay que recordar nada: te avisamos cuando es el momento.</p>
+    </div>
+
+    <div class="seasons">
+      <div class="season">
+        <div class="season-label">Otoño</div>
+        <div class="season-content">
+          <h4>Limpieza de canaletas</h4>
+          <p>Antes de las lluvias. Evitá filtraciones, humedad y daños en techos y paredes que después cuestan mucho más.</p>
+        </div>
+      </div>
+
+      <div class="season">
+        <div class="season-label">Primavera</div>
+        <div class="season-content">
+          <h4>Fumigación preventiva</h4>
+          <p>Con el calor vienen las plagas. Un tratamiento a tiempo es más efectivo y más económico que actuar sobre el problema.</p>
+        </div>
+      </div>
+
+      <div class="season">
+        <div class="season-label">Verano</div>
+        <div class="season-content">
+          <h4>Limpieza de filtros de aire acondicionado</h4>
+          <p>Filtros sucios consumen hasta 25% más de energía y acortan la vida útil del equipo. Un service simple que marca la diferencia.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="seasons-note">Las campañas tienen un costo con tarifa fija preferencial para miembros.</p>
+  </div>
+</section>
+
+<!-- ===== PRECIO ===== -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-label">Plan de lanzamiento</div>
+    <h2 class="section-title">Empezá hoy.</h2>
+    <p class="section-intro">Una sola membresía, todo incluido. Precio promocional durante el primer año.</p>
+
+    <div class="price-card">
+      <div class="price-badge">Precio promocional · Primer año</div>
+      <div class="price-name">OnHome Esencial</div>
+      <div class="price-strike">$35.000</div>
+      <div class="price-main">$30.000<span style="font-size: 18px; color: rgba(254,252,247,0.55); font-family: 'Inter', sans-serif; font-weight: 300;"> /mes</span></div>
+      <div class="price-period">Cancelás cuando quieras · Sin permanencia mínima</div>
+
+      <div class="price-divider"></div>
+
+      <div class="price-annual">o un pago anual de <strong>$300.000</strong></div>
+      <div class="price-annual-note">(equivale a 10 meses · ahorrás $60.000)</div>
+
+      <div class="price-terms">
+        Precio promocional durante el primer año. Los valores se ajustan semestralmente por IPC. Las tareas y campañas tienen un costo con tarifa fija preferencial para miembros.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER ===== -->
+<section class="founder">
+  <div class="container">
+    <p class="founder-quote">"Diseñé OnHome porque, como arquitecto, veía que el mantenimiento preventivo siempre se postergaba — hasta que se convertía en un problema costoso. La idea es simple: que tu casa esté siempre en orden, sin que tengas que ocuparte."</p>
+    <div class="founder-name">Tobías Moyano</div>
+    <div class="founder-title">Arquitecto CPAU 31058 · Residente de El Portal de Pilar</div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title">Lo que suelen preguntarnos.</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">¿Puedo darme de baja cuando quiera?</div>
+        <div class="faq-answer">Sí. Solo necesitás avisarnos por WhatsApp, sin penalidad y sin trámites. La baja se hace efectiva al cierre del mes en curso.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Qué pasa si tengo una emergencia?</div>
+        <div class="faq-answer">Podés escribirnos igual y haremos lo posible por resolverla rápido. El plan Esencial no incluye tiempo de respuesta garantizado para emergencias — para eso estamos preparando un plan superior con SLA.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Las reparaciones están incluidas en el precio?</div>
+        <div class="faq-answer">No. La membresía incluye el diagnóstico, la coordinación del profesional y la asesoría. Las reparaciones se cotizan con tarifa fija y 15% de descuento para miembros.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Y si vendo mi casa?</div>
+        <div class="faq-answer">El historial digital de tu propiedad es tuyo: te lo entregamos completo. Es un activo concreto que documenta el mantenimiento y suma valor en la venta.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Cómo funciona la auditoría inicial?</div>
+        <div class="faq-answer">La agendamos dentro de los primeros 15 días desde el alta. Un técnico senior visita tu propiedad, releva equipos e instalaciones, y al terminar recibís un informe digital con el estado de tu casa y recomendaciones priorizadas.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">¿Quiénes son los profesionales que envían?</div>
+        <div class="faq-answer">Trabajamos con una red propia de técnicos certificados y matriculados — no un marketplace abierto. Cada uno es seleccionado, validado y supervisado por nuestro equipo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Sumate al lanzamiento.</h2>
+    <p class="cta-sub">Precio promocional disponible por tiempo limitado.</p>
+
+    <div class="cta-group">
+      <a class="cta-primary" href="/terminos/">Quiero suscribirme</a>
+      <a class="cta-button" href="https://wa.me/5491150970289?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20OnHome%20Esencial" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Hablar por WhatsApp
+      </a>
+    </div>
+
+    <p class="cta-foot">Atención por WhatsApp de 8 a 22 hs · Sin compromiso</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
 <footer>
-  <a href="/" class="back-link">← Volver a onhome.com.ar</a>
-  <div>OnHome · contacto@onhome.com.ar · WhatsApp +54 9 11 5097-0289</div>
+  <div class="brand-foot">OnHome</div>
+  <div>contacto@onhome.com.ar · <a href="https://instagram.com/onhome.app" target="_blank" rel="noopener">@onhome.app</a></div>
+  <div style="margin-top: 14px;"><a href="/terminos/" style="font-size: 11px; opacity: 0.8;">Términos y condiciones</a></div>
 </footer>
-
-<script>
-  const PAYMENT_LINK_MENSUAL = 'https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=acef91ec4e204f44a54aaf44b7703725';
-  const WHATSAPP_ANUAL = 'https://wa.me/5491150970289?text=Hola%2C%20acabo%20de%20firmar%20los%20T%C3%A9rminos%20de%20OnHome%20Esencial%20y%20quiero%20contratar%20el%20plan%20anual.%20Necesito%20coordinar%20el%20pago%20por%20transferencia%20o%20efectivo.';
-
-  const form = document.getElementById('onhome-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const successMsg = document.getElementById('success-msg');
-  const paymentLink = document.getElementById('payment-link');
-  const fechaInput = document.getElementById('fecha_aceptacion');
-  const planSelect = document.getElementById('plan');
-
-  // Cambiar el texto del botón según el plan elegido
-  planSelect.addEventListener('change', function() {
-    if (this.value === 'anual') {
-      submitBtn.textContent = 'Aceptar y coordinar pago por WhatsApp';
-    } else {
-      submitBtn.textContent = 'Aceptar y proceder al pago';
-    }
-  });
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    fechaInput.value = new Date().toISOString();
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Procesando...';
-
-    const formData = new FormData(form);
-    const planElegido = formData.get('plan');
-    const destinoLink = planElegido === 'anual' ? WHATSAPP_ANUAL : PAYMENT_LINK_MENSUAL;
-
-    // Enviar a Formspree y ESPERAR confirmación de que llegó
-    try {
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      // Una vez confirmado el envío, redirigir al destino correspondiente
-      if (response.ok) {
-        window.location.replace(destinoLink);
-      } else {
-        // Si el envío falló, igualmente redirigir pero dejar registro en consola
-        console.warn('Formspree devolvió error pero redirigimos igual');
-        window.location.replace(destinoLink);
-      }
-    } catch (err) {
-      console.error('Error enviando a Formspree:', err);
-      // Si hay error de red, redirigir igual para no bloquear al usuario
-      window.location.replace(destinoLink);
-    }
-  });
-</script>
 
 </body>
 </html>
