@@ -353,6 +353,20 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  /* Recuadro de términos con scroll interno */
+  .terms-box {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 22px 20px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .terms-box .content { background: transparent; padding: 0; }
+  .terms-box .container { padding: 0; max-width: none; }
+  .terms-box .content section:last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -360,27 +374,64 @@
 <header class="hero">
   <div class="brand">OnHome</div>
   <div class="tagline">Cuidamos tu hogar</div>
-  <h1 class="doc-title">Términos y Condiciones</h1>
-  <div class="doc-subtitle">Plan Esencial — Vigente desde mayo 2026</div>
 </header>
 
-<div class="prestador">
-  <div class="container">
-    <div><strong>Prestador:</strong> OnHome</div>
-    <div><strong>Dirección técnica:</strong> Tobías Moyano · Arquitecto CPAU 31058</div>
-    <div><strong>Contacto:</strong> contacto@onhome.com.ar</div>
-    <div><strong>WhatsApp:</strong> +54 9 11 5097-0289</div>
-    <div><strong>Zona:</strong> Pilar, Provincia de Buenos Aires</div>
-  </div>
-</div>
 
+<section class="form-section" id="formulario">
+  <div class="container">
+    <h2>Suscribite al Plan Esencial</h2>
+    <p class="form-intro">Completá tus datos, aceptá los Términos y Condiciones y procedé al pago. Una vez registrado, te contactamos para coordinar la auditoría inicial.</p>
+
+    <form id="onhome-form" action="https://formspree.io/f/mzdwjqbe" method="POST">
+
+      <div class="field">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+      </div>
+
+      <div class="field">
+        <label for="dni">DNI</label>
+        <input type="text" id="dni" name="dni" placeholder="Sin puntos ni espacios" required inputmode="numeric" pattern="[0-9]{7,8}">
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+      </div>
+
+      <div class="field">
+        <label for="whatsapp">WhatsApp (con código de área)</label>
+        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 11 5097 0289" required>
+      </div>
+
+      <div class="field">
+        <label for="direccion">Dirección de la propiedad</label>
+        <input type="text" id="direccion" name="direccion" placeholder="Calle, número, barrio, localidad" required>
+      </div>
+
+      <div class="field">
+        <label for="plan">Plan</label>
+        <select id="plan" name="plan" required>
+          <option value="">— Seleccioná un plan —</option>
+          <option value="mensual">Mensual — ARS 30.000 por mes (pago automático)</option>
+          <option value="anual">Anual — ARS 300.000 (coordinado por WhatsApp)</option>
+        </select>
+        <p style="font-size: 12px; color: rgba(254, 252, 247, 0.55); margin-top: 8px; line-height: 1.5;">El plan anual con descuento se abona por transferencia o efectivo. Si elegís esta opción, te contactamos por WhatsApp para coordinar el pago.</p>
+      </div>
+
+      <input type="hidden" name="_subject" value="Nueva contratación OnHome Esencial">
+      <input type="hidden" name="fecha_aceptacion" id="fecha_aceptacion">
+
+      <div class="field">
+        <label>Términos y Condiciones</label>
+        <div class="terms-box">
 <div class="content">
   <div class="container">
 
     <section>
       <h2><span class="num">01</span>Objeto</h2>
       <p>OnHome es un servicio de mantenimiento preventivo del hogar prestado mediante una membresía mensual. El presente documento regula las condiciones del Plan Esencial, incluyendo el alcance del servicio, las obligaciones del prestador y del titular, y las modalidades de contratación, pago y baja.</p>
-      <p>La aceptación de estos Términos y Condiciones mediante el formulario al pie de este documento constituye un contrato de adhesión en los términos del artículo 38 de la Ley 24.240 de Defensa del Consumidor.</p>
+      <p>La aceptación de estos Términos y Condiciones mediante el formulario de esta página constituye un contrato de adhesión en los términos del artículo 38 de la Ley 24.240 de Defensa del Consumidor.</p>
     </section>
 
     <section>
@@ -481,51 +532,9 @@
 
   </div>
 </div>
-
-<section class="form-section" id="formulario">
-  <div class="container">
-    <h2>Aceptación y contratación</h2>
-    <p class="form-intro">Completá tus datos, aceptá los Términos y Condiciones y procedé al pago. Una vez registrado, te contactamos para coordinar la auditoría inicial.</p>
-
-    <form id="onhome-form" action="https://formspree.io/f/mzdwjqbe" method="POST">
-
-      <div class="field">
-        <label for="nombre">Nombre completo</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+        </div>
+        <p style="font-size:11px;color:rgba(254,252,247,0.5);margin:8px 0 0;line-height:1.5;">Desplazá dentro del recuadro para leerlos. Al tildar abajo, confirmás que los leíste y aceptás.</p>
       </div>
-
-      <div class="field">
-        <label for="dni">DNI</label>
-        <input type="text" id="dni" name="dni" placeholder="Sin puntos ni espacios" required inputmode="numeric" pattern="[0-9]{7,8}">
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-      </div>
-
-      <div class="field">
-        <label for="whatsapp">WhatsApp (con código de área)</label>
-        <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: 11 5097 0289" required>
-      </div>
-
-      <div class="field">
-        <label for="direccion">Dirección de la propiedad</label>
-        <input type="text" id="direccion" name="direccion" placeholder="Calle, número, barrio, localidad" required>
-      </div>
-
-      <div class="field">
-        <label for="plan">Plan</label>
-        <select id="plan" name="plan" required>
-          <option value="">— Seleccioná un plan —</option>
-          <option value="mensual">Mensual — ARS 30.000 por mes (pago automático)</option>
-          <option value="anual">Anual — ARS 300.000 (coordinado por WhatsApp)</option>
-        </select>
-        <p style="font-size: 12px; color: rgba(254, 252, 247, 0.55); margin-top: 8px; line-height: 1.5;">El plan anual con descuento se abona por transferencia o efectivo. Si elegís esta opción, te contactamos por WhatsApp para coordinar el pago.</p>
-      </div>
-
-      <input type="hidden" name="_subject" value="Nueva contratación OnHome Esencial">
-      <input type="hidden" name="fecha_aceptacion" id="fecha_aceptacion">
 
       <div class="checkbox-field">
         <input type="checkbox" id="acepto" name="acepto" required>
@@ -607,6 +616,16 @@
     }
   });
 </script>
+
+<div class="prestador">
+  <div class="container">
+    <div><strong>Prestador:</strong> OnHome</div>
+    <div><strong>Dirección técnica:</strong> Tobías Moyano · Arquitecto CPAU 31058</div>
+    <div><strong>Contacto:</strong> contacto@onhome.com.ar</div>
+    <div><strong>WhatsApp:</strong> +54 9 11 5097-0289</div>
+    <div><strong>Zona:</strong> Pilar, Provincia de Buenos Aires</div>
+  </div>
+</div>
 
 </body>
 </html>
