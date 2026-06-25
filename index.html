@@ -697,7 +697,7 @@
     font-size: 20px; font-style: italic; line-height: 1.5;
     color: var(--ink); max-width: 680px; margin: 0 auto 48px; text-align: center;
   }
-  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 280px)); justify-content: center; gap: 48px; }
   .team-card { text-align: center; }
   .team-photo {
     width: 120px; height: 120px; border-radius: 50%;
@@ -711,12 +711,55 @@
   .team-role { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
   .team-bio { font-size: 14px; line-height: 1.55; color: var(--ink-soft); max-width: 260px; margin: 0 auto; }
   @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  html { scroll-behavior: smooth; }
+  .topbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(26,24,21,0.92);
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 32px; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .topbar-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; }
+  .topbar-logo img { height: 26px; width: auto; }
+  .topbar-logo span { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--paper); }
+  .topbar-links { display: flex; gap: 28px; }
+  .topbar-links a { font-size: 13px; color: rgba(254,252,247,0.72); text-decoration: none; transition: color .2s; }
+  .topbar-links a:hover { color: var(--gold); }
+  .topbar-cta {
+    font-size: 13px; font-weight: 500; background: var(--accent); color: var(--paper);
+    padding: 9px 18px; border-radius: 2px; text-decoration: none; white-space: nowrap;
+  }
+  section { scroll-margin-top: 72px; }
+  @media (max-width: 760px) {
+    .topbar-links { display: none; }
+    .topbar-inner { padding: 0 20px; height: 54px; }
+    .topbar-logo span { font-size: 20px; }
+  }
 </style>
 </head>
 <body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="#inicio" class="topbar-logo">
+      <img src="/logo-onhome.png" alt="OnHome">
+      <span>OnHome</span>
+    </a>
+    <div class="topbar-links">
+      <a href="#equipo">Quiénes somos</a>
+      <a href="#incluye">Qué incluye</a>
+      <a href="#precio">Precio</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </div>
+    <a class="topbar-cta" href="https://wa.me/5491150970289?text=Hola%21%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20OnHome." target="_blank" rel="noopener">Quiero saber más</a>
+  </div>
+</nav>
 
 <!-- ===== HERO ===== -->
-<header class="hero">
+<header class="hero" id="inicio">
   <img src="/logo-onhome.png" alt="OnHome" class="hero-logo">
   <div class="brand">OnHome</div>
   <div class="tagline">Cuidamos tu hogar</div>
@@ -744,16 +787,15 @@
 
       <p>Cuando la intervención lo requiere, contás además con la <strong>opinión de un arquitecto matriculado</strong> antes de tomar cualquier decisión — sin tener que llamar a nadie.</p>
 
-      <p>Los services de equipos se cotizan con tarifas claras, sin sorpresas; y cualquier obra o reparación lleva tu 15% de descuento de socio. La membresía incluye una <strong>auditoría inicial</strong> de tu propiedad, una <strong>inspección técnica de tu caldera, calefón o termotanque</strong>, y un <strong>historial digital</strong> de todas las intervenciones — un activo concreto que suma valor a tu casa al momento de vender.</p>
+      <p>La membresía incluye una <strong>auditoría inicial</strong> de tu propiedad, una <strong>inspección técnica de tu caldera, calefón o termotanque</strong>, y un <strong>historial digital</strong> de todas las intervenciones — un activo concreto que suma valor a tu casa al momento de vender.</p>
     </div>
   </div>
 </section>
 
 <!-- ===== QUÉ INCLUYE ===== -->
-<section class="includes">
+<section class="includes" id="incluye">
   <div class="container">
-    <div class="section-label">Qué incluye</div>
-    <h2 class="section-title">Todo lo que tu hogar necesita.</h2>
+    <h2 class="section-title">Qué incluye</h2>
 
     <ol class="feature-list" style="margin-top: 40px;">
       <li class="feature">
@@ -775,7 +817,7 @@
       <li class="feature">
         <span class="feature-num"></span>
         <div>
-          <h3 class="feature-title">Asesoría de arquitecto cuando importa</h3>
+          <h3 class="feature-title">Asesoría de arquitecto</h3>
           <p class="feature-desc">Cuando una intervención puede afectar la estructura, la instalación o el valor de tu propiedad, contás con la opinión de un arquitecto matriculado antes de decidir. Sin costo, sin buscar a nadie.</p>
         </div>
       </li>
@@ -895,14 +937,14 @@
 </section>
 
 <!-- ===== PRECIO ===== -->
-<section class="pricing">
+<section class="pricing" id="precio">
   <div class="container">
     <div class="section-label">Plan de lanzamiento</div>
     <h2 class="section-title">Empezá hoy.</h2>
-    <p class="section-intro">Una sola membresía, todo incluido. Precio promocional hasta enero 2027.</p>
+    <p class="section-intro">Una sola membresía, todo incluido. Precio promocional hasta octubre.</p>
 
     <div class="price-card">
-      <div class="price-badge">Precio promocional · hasta enero 2027</div>
+      <div class="price-badge">Precio promocional · hasta octubre</div>
       <div class="price-name">OnHome Esencial</div>
       <div class="price-strike">$35.000</div>
       <div class="price-main">$30.000<span style="font-size: 18px; color: rgba(254,252,247,0.55); font-family: 'Inter', sans-serif; font-weight: 300;"> /mes</span></div>
@@ -914,7 +956,7 @@
       <div class="price-annual-note">(equivale a 10 meses · ahorrás $60.000)</div>
 
       <div class="price-terms">
-        Precio promocional hasta enero 2027. Los valores se ajustan semestralmente por IPC. Las tareas y campañas tienen un costo con tarifa fija preferencial para miembros.
+        Precio promocional hasta octubre. Los valores se ajustan semestralmente por IPC. Las tareas y campañas tienen un costo con tarifa fija preferencial para miembros.
       </div>
     </div>
 
@@ -939,14 +981,8 @@
       <div class="team-card">
         <div class="team-photo"><img src="/equipo-tobias.jpg" alt="Tobías Moyano"></div>
         <div class="team-name">Tobías Moyano</div>
-        <div class="team-role">Fundador · Arquitecto UBA </div>
-        <div class="team-bio">Dirige la parte técnica y de obra. .</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo"><img src="/equipo-juanjose.jpg" alt="Juan José Moyano"></div>
-        <div class="team-name">Juan José Moyano</div>
-        <div class="team-role">Arquitecto UBA</div>
-        <div class="team-bio">40 años de experiencia en construcción residencial. Asesoría y dirección de proyectos.</div>
+        <div class="team-role">Fundador · Arquitecto CPAU 31058</div>
+        <div class="team-bio">Dirige la parte técnica y de obra. Residente de El Portal de Pilar.</div>
       </div>
       <div class="team-card">
         <div class="team-photo"><img src="/equipo-olivia.jpg" alt="Olivia Moyano"></div>
@@ -959,7 +995,7 @@
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="faq">
+<section class="faq" id="faq">
   <div class="container">
     <div class="section-label">Preguntas frecuentes</div>
     <h2 class="section-title">Lo que suelen preguntarnos.</h2>
@@ -972,12 +1008,12 @@
 
       <div class="faq-item">
         <div class="faq-question">¿Qué pasa si tengo una emergencia?</div>
-        <div class="faq-answer">Podés escribirnos igual y haremos lo posible por resolverla rápido. El plan Esencial no incluye tiempo de respuesta garantizado para emergencias — para eso estamos preparando un plan superior con SLA.</div>
+        <div class="faq-answer">Te contactás con nosotros y haremos lo posible por resolverlo lo antes posible. El plan Esencial no incluye tiempo de respuesta garantizado para emergencias — para eso estamos preparando un plan superior con SLA.</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">¿Las reparaciones están incluidas en el precio?</div>
-        <div class="faq-answer">No. La membresía incluye el diagnóstico, la coordinación del profesional y la asesoría. Las reparaciones se cotizan con tarifa fija y 15% de descuento para miembros.</div>
+        <div class="faq-answer">La membresía incluye el diagnóstico, la coordinación del profesional y la asesoría. Las reparaciones se cotizan con tarifa fija y 15% de descuento para miembros, pero no están incluidas en el precio.</div>
       </div>
 
       <div class="faq-item">
@@ -1002,7 +1038,7 @@
 <section class="cta-section">
   <div class="container">
     <h2 class="cta-title">Sumate al lanzamiento.</h2>
-    <p class="cta-sub">Precio promocional disponible por tiempo limitado.</p>
+    <p class="cta-sub">Precio promocional hasta octubre.</p>
 
     <div class="cta-group">
       <a class="cta-primary" href="/terminos/">Quiero suscribirme</a>
