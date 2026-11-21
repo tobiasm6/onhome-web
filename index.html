@@ -303,6 +303,18 @@ figure.obra-frente{margin:0}
 #obras .ver-todas-wrap{text-align:left}
 .autor{max-width:820px}
 @media(max-width:760px){#obras .obra{max-width:100%;padding-left:0;padding-right:0}}
+
+/* ===== mejoras finas: acento dorado + navegación + pie ===== */
+:root{--oro:#8C6E34;--oro2:#C2A06A}
+section[id],[id].obra{scroll-margin-top:84px}
+.kick{color:var(--oro)}
+.kick::before{background:var(--oro)}
+.cmp-tag-d{background:var(--oro)}
+.ver-obra{color:var(--oro);border-color:var(--oro)}
+.ver-obra:hover{color:var(--grafito);border-color:var(--grafito)}
+.zocalo-meta{color:var(--oro2)}
+.zocalo-logo{display:flex;align-items:center;gap:10px}
+.zocalo-logo img{width:30px;height:30px;border-radius:6px;display:block}
 </style>
 </head>
 <body>
@@ -477,7 +489,7 @@ figure.obra-frente{margin:0}
 <footer class="zocalo">
   <div class="wrap zocalo-grid">
     <div class="zocalo-brand">
-      <p class="zocalo-logo">OnHome</p>
+      <p class="zocalo-logo"><img src="logo-onhome.png" alt="" width="30" height="30">OnHome</p>
       <p class="zocalo-tag">Se proyecta con criterio. Se construye con oficio.</p>
       <p class="zocalo-meta">+50 proyectos entregados desde 2014</p>
     </div>
