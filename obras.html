@@ -267,12 +267,18 @@ footer{padding:30px 28px;text-align:center;font-family:var(--mono);font-size:10.
 .obra-desc,.lead,.autor-texto p,.serv p,.social-obra p,.estudio-lead,#estudio>.wrap>p{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
 @media(max-width:760px){.obra-desc,.lead,.autor-texto p,.serv p,.social-obra p,.estudio-lead,#estudio>.wrap>p{text-align:left;hyphens:none}}
 
+
+/* ===== pasada de coherencia de layout ===== */
+#obras h2,#obras .kick,#obras .lead,#obras .obra{max-width:820px;margin-left:0;margin-right:0}
+#obras .obra-head{max-width:none}
+#obras .obra-head .obra-desc{max-width:none}
+@media(max-width:760px){#obras h2,#obras .kick,#obras .lead,#obras .obra{max-width:100%}#obras .obra{padding-left:0;padding-right:0}}
 </style>
 </head>
 <body id="top">
 <header id="hdr">
   <div class="nav">
-    <a class="logo" href="index.html">TM<em> · </em>Arquitectura</a>
+    <a class="logo" href="index.html"><img class="logo-mark" src="logo-onhome.png" alt="OnHome" width="40" height="40"><span class="logo-word">OnHome</span></a>
     <nav class="menu">
       <a href="index.html#estudio">Estudio</a>
       <a href="index.html#obras">Obras</a>
